@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskTogether - Collaborative Task Manager</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="header-content">
+        <h1><i class="fas fa-tasks"></i> TaskTogether</h1>
+        <div class="user-greeting">Welcome, <strong>User</strong> <span class="user-avatar">👤</span></div>
+      </div>
+    </header>
+
+    <main class="dashboard">
+      <section class="card task-section">
+        <div class="card-header">
+          <h2><i class="fas fa-clipboard-list"></i> My Tasks</h2>
+          <button class="btn btn-primary" onclick="openTaskModal()">
+            <i class="fas fa-plus"></i> Add Task
+          </button>
+        </div>
+        <ul id="task-list" class="task-list">
+          <li class="task-item">
+            <label class="task-checkbox">
+              <input type="checkbox">
+              <span class="checkmark"></span>
+              <span class="task-text">Finish UI Prototype</span>
+            </label>
+            <span class="task-due"><i class="far fa-calendar-alt"></i> Today</span>
+          </li>
+          <li class="task-item">
+            <label class="task-checkbox">
+              <input type="checkbox">
+              <span class="checkmark"></span>
+              <span class="task-text">Send friend request to Alex</span>
+            </label>
+            <span class="task-due"><i class="far fa-calendar-alt"></i> Tomorrow</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="card friends-section">
+        <div class="card-header">
+          <h2><i class="fas fa-user-friends"></i> My Friends</h2>
+        </div>
+        <ul class="friends-list">
+          <li class="friend-item">
+            <div class="friend-info">
+              <span class="friend-avatar">👨‍💻</span>
+              <span class="friend-name">Alex</span>
+            </div>
+            <span class="task-count"><i class="fas fa-check-circle"></i> 3 tasks today</span>
+          </li>
+          <li class="friend-item">
+            <div class="friend-info">
+              <span class="friend-avatar">👩‍💻</span>
+              <span class="friend-name">Jordan</span>
+            </div>
+            <span class="task-count"><i class="fas fa-check-circle"></i> 1 task today</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="card activity-section">
+        <div class="card-header">
+          <h2><i class="fas fa-rss"></i> Activity Feed</h2>
+        </div>
+        <ul class="activity-list">
+          <li class="activity-item">
+            <div class="activity-content">
+              <span class="activity-avatar">👨‍💻</span>
+              <div>
+                <p class="activity-text">Alex completed "Read UX Case Study"</p>
+                <p class="activity-time"><i class="far fa-clock"></i> 10 mins ago</p>
+              </div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <div class="activity-content">
+              <span class="activity-avatar">👩‍💻</span>
+              <div>
+                <p class="activity-text">Jordan joined your friend list</p>
+                <p class="activity-time"><i class="far fa-clock"></i> 1 hr ago</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- Task Modal -->
+    <div id="taskModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h3>Add New Task</h3>
+        <div class="form-group">
+          <label for="taskInput">Task Description</label>
+          <input type="text" id="taskInput" placeholder="What needs to be done?">
+        </div>
+        <div class="form-group">
+          <label for="dueDate">Due Date</label>
+          <select id="dueDate">
+            <option value="today">Today</option>
+            <option value="tomorrow">Tomorrow</option>
+            <option value="later">Later</option>
+          </select>
+        </div>
+        <button class="btn btn-primary btn-block" onclick="addTask()">Add Task</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
